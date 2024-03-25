@@ -13,7 +13,7 @@
 
 
 
-## CarboMatrix Team
+## CarbonMatrix Team
 We aim to develop large-scale deep learning and generative AI models for protein structure prediction and protein design.
 
 Current members:\
