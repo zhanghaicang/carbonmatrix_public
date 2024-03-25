@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -ex
+
+# This is the master script for the capsule. When you click "Reproducible Run", the code in this file will execute.
+
+python -u run_carbondesign.py --model ../data/models/default_model.ckpt --model_features ./config/config_data_mrf2.json --model_config ./config/config_model_mrf_pair_enable_esm_sc.json --data_dir ../data/pdbs --output_dir ../results --device gpu --gpu_idx 0 --name_idx ../data/pdbs/name.idx --temp 0.1 --save_sidechain
+
