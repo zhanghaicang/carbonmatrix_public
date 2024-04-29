@@ -22,8 +22,8 @@ python -u run_carbondesign.py
 Highly accurate and robust protein sequence design with CarbonDesign.  M. Ren, C. Yu, D. Bu, H. Zhang. Nature Machine Intelligence, In press.
 
 ## CarbonMatrix Team
-We aim to develop large-scale deep learning and generative AI models for protein structure prediction and protein design. We have already released CarbonDesign, and we plan to release more models in the near future.
+We aim to develop large-scale deep learning and generative AI models for protein structure prediction and protein design. We have already released CarbonDesign, and we plan to release more models soon.
 
 Current members:\
-Haicang Zhang, team leader\
+Haicang Zhang (zhanghaicang@ict.ac.cn), team leader\
 Milong Ren, Tian Zhu, Zaikai He, Siyuan Tao
