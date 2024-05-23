@@ -10,7 +10,7 @@ Milong Ren, Tian Zhu, Zaikai He, Siyuan Tao
 **2 May 2024**: Our two papers, CarbonNovo and AbX, have been accepted by ICML 2024. We will release the source codes in this repository soon.  
 - CarbonNovo: Joint Design of Protein Structure and Sequence Using a Unified Energy-based Model  
 <https://icml.cc/virtual/2024/poster/34533>  
-- Antibody Design Using a Score-based Diffusion Model Guided by Evolutionary, Physical and Geometric Constraints
+- Antibody Design Using a Score-based Diffusion Model Guided by Evolutionary, Physical and Geometric Constraints  
 <https://icml.cc/virtual/2024/poster/35143>  
 
 
