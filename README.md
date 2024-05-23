@@ -4,6 +4,9 @@ Protein sequence design is critically important for protein engineering. Despite
 **Installation**\
 Please install the required libraries using install.sh.
 
+**Model weights**\
+the model weights can be downloaded from <https://carbondesign.s3.amazonaws.com/params.tar> .
+
 **Usage**\
 You are required to input the **PDB** file (**--data_dir**) of the protein backbone structures. CarbonDesign will subsequently output the designed protein sequence (**--output_dir**). Additionally, CarbonDesign supports the prediction of the side chain structures of the designed sequences (**--save_sidechain**).
 ````python
