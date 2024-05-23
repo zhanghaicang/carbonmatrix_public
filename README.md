@@ -1,19 +1,20 @@
 ## CarbonMatrix Team
+**Aims**
 We aim to develop large-scale generative AI models for protein structure prediction and protein design. We have already released CarbonDesign, and we plan to release more models soon.
 
 **Current members**:\
 Haicang Zhang (zhanghaicang@ict.ac.cn), Team leader\
 Milong Ren, Tian Zhu, Zaikai He, Siyuan Tao
 
-**News***\
-**22 May 2024**: Our two papers CarbonNovo and AbX have been accepted by ICML 2024. We will release the source codes in this repository soon.  
+**News**\
+**22 May 2024**: Our two papers, CarbonNovo and AbX, have been accepted by ICML 2024. We will release the source codes in this repository soon.  
 - CarbonNovo: Joint Design of Protein Structure and Sequence Using a Unified Energy-based Model  
 <https://icml.cc/virtual/2024/poster/34533>  
 - Antibody Design Using a Score-based Diffusion Model Guided by Evolutionary, Physical and Geometric Constraints
 <https://icml.cc/virtual/2024/poster/35143>  
 
-  
-**9 Jan 2024**: Our paper CarbonDesign has been accepted by Nature Machine Intelligence.  
+
+**9 Jan 2024**: Our paper, CarbonDesign, has been accepted by Nature Machine Intelligence.  
 Accurate and robust protein sequence design with CarbonDesign. <https://www.biorxiv.org/content/10.1101/2023.08.07.552204v1> 
 
 
