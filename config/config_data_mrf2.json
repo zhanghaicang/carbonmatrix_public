@@ -1,0 +1,17 @@
+[
+  ["make_to_device", {
+    "fields":["seq", "mask", "chain_id", "atom14_gt_positions", "atom14_gt_exists", "geo_global"],
+    "device":"%(device)s"}],
+  ["make_restype_atom_constants", {}],
+  ["make_atom14_alt_gt_positions", {}],
+  ["make_gt_frames", {}],
+  ["make_torsion_angles", {}],
+  ["make_pseudo_beta", {}],
+  ["make_proteinmpnn_features", {
+	"config":{
+            "first_break" : 2.0,
+            "last_break" : 12.0,
+            "num_bins" : 20}
+  }],
+  ["make_calpha3_frames", {}]
+]

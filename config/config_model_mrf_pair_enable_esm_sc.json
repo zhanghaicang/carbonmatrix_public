@@ -1,0 +1,117 @@
+{
+   "model" : {
+      "num_atom" : 5,
+      "num_recycle" : 3,
+      "embeddings_and_seqformer" : {
+         "seqformer_num_block" : 12,
+         "seq_channel" : 384,
+         "pair_channel" : 128,
+         "max_relative_feature" : 32,
+	 "pair_dist_channel" : 500,
+	 "recycle_features" : true,
+	 "lm" : {
+	     "enabled":true,
+	     "start_train_step":-1,
+             "embed_channel" : 1280,
+	     "repr_layer":33,
+	     "model_path" : "../data/models/esm2_t33_650M_UR50D.pt"
+	 },
+         "seqformer" : {
+            "seq_attention_with_pair_bias" : {
+               "orientation" : "per_row",
+               "num_head" : 8,
+	       "inp_kernels":[],
+               "dropout_rate" : 0,
+               "shared_dropout" : true
+            },
+            "seq_transition" : {
+               "orientation" : "per_row",
+               "num_intermediate_factor" : 2,
+               "dropout_rate" : 0.1,
+               "shared_dropout" : false
+            },
+            "outer_product_mean" : {
+               "orientation" : "per_row",
+               "num_outer_channel" : 32,
+               "dropout_rate" : 0,
+               "shared_dropout" : true
+            },
+            "triangle_multiplication_outgoing" : {
+               "orientation" : "per_row",
+               "num_intermediate_channel" : 128,
+	       "gating":true,
+	       "num_head":4,
+	       "inp_kernels":[],
+               "dropout_rate" : 0.1,
+               "shared_dropout" : false
+            },
+            "triangle_multiplication_incoming" : {
+               "orientation" : "per_column",
+               "num_intermediate_channel" : 128,
+	       "gating":true,
+	       "num_head":4,
+	       "inp_kernels":[],
+               "dropout_rate" : 0.1,
+               "shared_dropout" : false
+            },
+            "triangle_attention_starting_node" : {
+               "orientation" : "per_row",
+               "num_head" : 4,
+	       "gating":true,
+	       "inp_kernels":[],
+               "dropout_rate" : 0.1,
+               "shared_dropout" : false
+            },
+            "triangle_attention_ending_node" : {
+               "orientation" : "per_column",
+               "num_head" : 4,
+	       "gating":true,
+	       "inp_kernels":[],
+               "dropout_rate" : 0.1,
+               "shared_dropout" : false
+            },
+            "pair_transition" : {
+               "orientation" : "per_row",
+               "num_intermediate_factor" : 4,
+               "dropout_rate" : 0,
+               "shared_dropout" : true
+            }
+         }
+      },
+      "heads" : {
+         "seqhead" : {},
+         "pairhead" : {},
+         "structure_module" : {
+            "torsion" : {
+               "num_residual_block" : 2,
+               "num_channel" : 256 
+            },
+            "num_channel" : 384,
+            "dropout" : 0
+         }
+      }
+   },
+   "loss" : {
+      "seq":{
+	  "config" : {},
+	  "loss_fn" : "seq_loss",
+	  "weight" : 1.0
+      },
+      "mrf_pair":{
+	  "config" : {"pair_norm_weight":0.01, "site_norm_weight":0.01},
+	  "loss_fn" : "mrf_pair_loss",
+	  "weight" : 1.0
+      },
+      "folding" : {
+         "config" : {
+            "sidechain_mse_weight" : 0.2,
+            "chi_weight" : 0.2,
+            "angle_norm_weight" : 0.1,
+            "structural_violation_loss_weight" : 0
+         },
+         "loss_fn" : "folding_loss",
+         "weight" : 1.0
+      }
+   }
+}
+
