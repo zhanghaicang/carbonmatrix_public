@@ -176,7 +176,7 @@ def evaluate(rank, log_queue, args):
     #worker_setup(rank, log_queue, args)
 
     feats, model = worker_load(rank, args)
-    logging.info('feats: %s', feats)
+    # logging.info('feats: %s', feats)
 
     
     device = worker_device(rank, args)
@@ -243,18 +243,20 @@ def main(args):
     listener = QueueListener(log_queue, *handlers, respect_handler_level=True)
     listener.start()
 
-    logging.info('-----------------')
-    logging.info('Arguments: %s', args)
-    logging.info('-----------------')
+    # logging.info('-----------------')
+    # logging.info('Arguments: %s', args)
+    # logging.info('-----------------')
 
     evaluate(0, log_queue, args)
 
+    '''
     logging.info('-----------------')
     logging.info('Resources(myself): %s',
                  resource.getrusage(resource.RUSAGE_SELF))
     logging.info('Resources(children): %s',
                  resource.getrusage(resource.RUSAGE_CHILDREN))
     logging.info('-----------------')
+    '''
 
     listener.stop()
 
