@@ -29,7 +29,7 @@ Protein sequence design is critically important for protein engineering. Despite
 2. Install other required libraries by running `bash install.sh`.
 
 **Model weights**
-1. Download CarbonDesign model weights from <https://carbondesign.s3.amazonaws.com/params.tar> .
+1. Download CarbonDesign model weights from <https://carbondesign.s3.amazonaws.com/params.tar>, and place them in the ./params directory.
 2. Download the ESM2 model weights from <https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt> and <https://dl.fbaipublicfiles.com/fair-esm/regression/esm2_t33_650M_UR50D-contact-regression.pt>, and place them in the `./params` directory. 
 
 
