@@ -14,7 +14,7 @@
 	     "start_train_step":-1,
              "embed_channel" : 1280,
 	     "repr_layer":33,
-	     "model_path" : "../data/models/esm2_t33_650M_UR50D.pt"
+	     "model_path" : "./params/esm2_t33_650M_UR50D.pt"
 	 },
          "seqformer" : {
             "seq_attention_with_pair_bias" : {
