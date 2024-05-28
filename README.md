@@ -36,16 +36,10 @@ Protein sequence design is critically important for protein engineering. Despite
 **Usage**\
 You are required to input the **PDB** file (**--data_dir**) of the protein backbone structures. CarbonDesign will subsequently output the designed protein sequence (**--output_dir**). Additionally, CarbonDesign supports the prediction of the side chain structures of the designed sequences (**--save_sidechain**).
 ````python
-python -u run_carbondesign.py 
---model ./params/carbondesign_default.ckpt ## model name
---model_features ./config/config_data_mrf2.json ## feature config
---model_config ./config/config_model_mrf_pair_enable_esm_sc.json ## model config
+python -u run_carbondesign.py
 --data_dir ./data/pdbs ## input pdbs path
 --output_dir ./results ## results path
---device gpu ## use GPU
---gpu_idx 0 ## gpu index
 --name_idx ./data/pdbs/name.idx ## list of sequences that need to be designed is required
---temp 0.0001 ##sampling temperature
 ````
 **Citation**\
 Accurate and robust protein sequence design with CarbonDesign.  M. Ren, C. Yu, D. Bu, H. Zhang. Nature Machine Intelligence. 6, 536–547 (2024). https://doi.org/10.1038/s42256-024-00838-2
