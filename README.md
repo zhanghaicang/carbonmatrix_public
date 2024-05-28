@@ -37,9 +37,9 @@ Protein sequence design is critically important for protein engineering. Despite
 You are required to input the **PDB** file (**--data_dir**) of the protein backbone structures. CarbonDesign will subsequently output the designed protein sequence (**--output_dir**). Additionally, CarbonDesign supports the prediction of the side chain structures of the designed sequences (**--save_sidechain**).
 ````python
 python -u run_carbondesign.py
---data_dir ./data/pdbs ## input pdbs path
---output_dir ./results ## results path
---name_idx ./data/pdbs/name.idx ## list of pdb ids whose pdb-files have been put in the --data_dir.
+--data_dir ./data/pdbs ## input directory of pdb files
+--output_dir ./results ## output directory
+--name_idx ./data/pdbs/name.idx ## list of pdb ids whose pdb files have been put in the input directory
 ````
 **Citation**\
 Accurate and robust protein sequence design with CarbonDesign.  M. Ren, C. Yu, D. Bu, H. Zhang. Nature Machine Intelligence. 6, 536–547 (2024). https://doi.org/10.1038/s42256-024-00838-2
