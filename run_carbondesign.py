@@ -88,13 +88,13 @@ def infer_mrf(init_label, site_repr, pair_repr, site_mask, pair_mask, T):
     prev_label = np.array(init_label)
     pos = np.argsort(deg)
     
-    for cycle in range(10):
+    for cycle in range(5):
         #shuffle(pos)
         updated_count = 0
         for i in pos:
             if not site_mask[i]:
                 continue
-            obj = -1000000
+            obj = -10000.0
             obj_c = -1
             t_lis = np.zeros(C-1)
             for c in range(C - 1):
@@ -103,10 +103,11 @@ def infer_mrf(init_label, site_repr, pair_repr, site_mask, pair_mask, T):
                     if pair_mask[i, k]:
                         t += pair_repr[i, k, c, prev_label[k]]
                         t_lis[c] = t
-            if True:#t > obj:
+            if T >= 0.1:
                 probs = temp_softmax(t_lis, T)
                 obj_c = np.argmax(np.random.multinomial(1, probs))
-                
+            else:
+                obj_c = np.argmax(t_lis)
             if prev_label[i] != obj_c:
                 prev_label[i] = obj_c
                 updated_count += 1
@@ -131,7 +132,7 @@ def evaluate_mrf_one(name, gt_str_seq, site_repr, pair_repr, site_mask, pair_mas
     pred_str_seq1 = replace_with_x(pred_str_seq1, site_mask)    
     total_len = len(gt_str_seq)
     valid_len = np.sum(site_mask)
-    T = args.temp
+    T = args.temperature
 
     label = infer_mrf(label, site_repr, pair_repr, site_mask, pair_mask, T)
     pred_str_seq2 = index_to_str_seq(label)
@@ -259,21 +260,27 @@ def main(args):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--gpu_idx', type=int, nargs='+')
     parser.add_argument('--save_mrf', action='store_true')
     parser.add_argument('--save_sidechain',action='store_true')
-    parser.add_argument('--device', type=str, choices=['gpu', 'cpu'], default='gpu')
-    parser.add_argument('--ipc_file', type=str, default='./test.ipc')
-    parser.add_argument('--model', type=str, required=True)
-    parser.add_argument('--model_features', type=str, required=True)
-    parser.add_argument('--model_config', type=str, required=True)
-    parser.add_argument('--map_location', type=str, default=None)
+    parser.add_argument('--model', type=str,
+            default='./params/carbondesign_default.ckpt')
+    parser.add_argument('--model_features', type=str,
+            default='./config/config_data_mrf2.json')
+    parser.add_argument('--model_config', type=str,
+            default='./config/config_model_mrf_pair_enable_esm_sc.json')
+    
     parser.add_argument('--name_idx', type=str, required=True)
     parser.add_argument('--data_dir', type=str, required=True)
     parser.add_argument('--output_dir', type=str, required=True)
+    parser.add_argument('--temperature', type=float, default=0.0)
+
     parser.add_argument('--batch_size', type=int, default=1)
-    parser.add_argument('--temp', type=float, required=True)
     parser.add_argument('--verbose', action='store_true')
+    parser.add_argument('--gpu_idx', type=int, nargs='+', default=[0])
+    parser.add_argument('--map_location', type=str, default=None)
+    parser.add_argument('--device', type=str, choices=['gpu', 'cpu'], default='gpu')
+    parser.add_argument('--ipc_file', type=str, default='./test.ipc')
+
     args = parser.parse_args()
 
     main(args)
