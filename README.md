@@ -45,7 +45,7 @@ python -u run_carbondesign.py
 --device gpu ## use GPU
 --gpu_idx 0 ## gpu index
 --name_idx ./data/pdbs/name.idx ## list of sequences that need to be designed is required
---temp 0.1 ##sampling temperature
+--temp 0.0001 ##sampling temperature
 ````
 **Citation**\
 Accurate and robust protein sequence design with CarbonDesign.  M. Ren, C. Yu, D. Bu, H. Zhang. Nature Machine Intelligence. 6, 536–547 (2024). https://doi.org/10.1038/s42256-024-00838-2
