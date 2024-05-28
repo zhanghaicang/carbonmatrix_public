@@ -38,10 +38,10 @@ You are required to input the **PDB** file (**--data_dir**) of the protein backb
 Example,
 
 ```
-python -u run_carbondesign.py --data_dir ./data/pdb  --output_dir ./results  --name_idx ./data/pdbs/name.idx
+python -u run_carbondesign.py --data_dir ./data/pdbs  --output_dir ./results  --name_idx ./data/pdbs/name.idx
 ```
 
-Main arguments: 
+Main arguments:  
 data_dir: input directory of pdb files  
 output_dir: output directory  
 name_idx: list of pdb ids whose pdb files have been put in the input directory  
