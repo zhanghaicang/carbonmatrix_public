@@ -39,7 +39,7 @@ You are required to input the **PDB** file (**--data_dir**) of the protein backb
 python -u run_carbondesign.py
 --data_dir ./data/pdbs ## input pdbs path
 --output_dir ./results ## results path
---name_idx ./data/pdbs/name.idx ## list of sequences that need to be designed is required
+--name_idx ./data/pdbs/name.idx ## list of pdb ids whose pdb-files have been put in the --data_dir.
 ````
 **Citation**\
 Accurate and robust protein sequence design with CarbonDesign.  M. Ren, C. Yu, D. Bu, H. Zhang. Nature Machine Intelligence. 6, 536–547 (2024). https://doi.org/10.1038/s42256-024-00838-2
