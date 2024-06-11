@@ -7,7 +7,7 @@ Haicang Zhang (zhanghaicang@ict.ac.cn) \
 Milong Ren, Tian Zhu, Zaikai He, Siyuan Tao
 
 **News**\
-** 11 June 2024**: CarbonNovo and AbX are available online in the ICML 2024.  
+**11 June 2024**: CarbonNovo and AbX are available online in the ICML 2024.  
 CarbonNovo:  <https://openreview.net/attachment?id=FSxTEvuFa7&name=pdf>  
 AbX: <https://openreview.net/pdf?id=1YsQI04KaN> 
 
