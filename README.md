@@ -7,6 +7,11 @@ Haicang Zhang (zhanghaicang@ict.ac.cn) \
 Milong Ren, Tian Zhu, Zaikai He, Siyuan Tao
 
 **News**\
+** 11 June 2024**: CarbonNovo and AbX are available online in the ICML 2024.  
+CarbonNovo:  <https://openreview.net/attachment?id=FSxTEvuFa7&name=pdf>  
+AbX: <https://openreview.net/pdf?id=1YsQI04KaN> 
+
+
 **23 May 2024**: Our paper, CarbonDesign, is now available online in Nature Machine Intelligence. <https://www.nature.com/articles/s42256-024-00838-2>.  
 
 
@@ -56,7 +61,7 @@ De novo protein design aims to create novel protein structures and sequences uns
 We are working on organizing the code and will release the software soon.
 
 **Citation**\
-CarbonNovo: Joint Design of Protein Structure and Sequence Using a Unified Energy-based Model. M. Ren, T. Zhu, H. Zhang. ICML 2024.
+CarbonNovo: Joint Design of Protein Structure and Sequence Using a Unified Energy-based Model. M. Ren, T. Zhu, H. Zhang#. ICML 2024.  <https://openreview.net/attachment?id=FSxTEvuFa7&name=pdf>
 
 ## AbX
 Antibodies are central proteins in adaptive immune responses, responsible for protecting against viruses and other pathogens. Rational antibody design has proven effective in the diagnosis and treatment of various diseases like cancers and virus infections. While recent diffusion-based generative models show promise in designing antigen-specific antibodies, the primary challenge lies in the scarcity of labeled antibody-antigen complex data and binding affinity data. We present AbX, a new score-based diffusion generative model guided by evolutionary, physical, and geometric constraints for antibody design. These constraints serve to narrow the search space and provide priors for plausible antibody sequences and structures. Specifically, we leverage a pre-trained protein language model as priors for evolutionary plausible antibodies and introduce additional training objectives for geometric and physical constraints like van der Waals forces. Furthermore, as far as we know, AbX is the first score-based diffusion model with continuous timesteps for antibody design, jointly modeling the discrete sequence space and the SE(3) structure space. Evaluated on two independent testing sets, we show that AbX outperforms other published methods, achieving higher accuracy in sequence and structure generation and enhanced antibody-antigen binding affinity. Ablation studies highlight the clear contributions of the introduced constraints to antibody design.
@@ -65,6 +70,6 @@ Antibodies are central proteins in adaptive immune responses, responsible for pr
 We are working on organizing the code and will release the software soon.
 
 **Citation**\
-Antibody Design Using a Score-based Diffusion Model Guided by Evolutionary, Physical and Geometric Constraints. T. Zhu, M. Ren, H. Zhang. ICML 2024.
+Antibody Design Using a Score-based Diffusion Model Guided by Evolutionary, Physical and Geometric Constraints. T. Zhu, M. Ren, H. Zhang#. ICML 2024.  <https://openreview.net/pdf?id=1YsQI04KaN>
 
 
