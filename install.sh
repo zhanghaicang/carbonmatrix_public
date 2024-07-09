@@ -8,4 +8,5 @@ conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch
 conda install numpy
 conda install scipy
 conda install biopython
+pip install dm-tree
 
