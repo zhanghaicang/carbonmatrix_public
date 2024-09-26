@@ -1,3 +1,7 @@
+**Notes**\
+Please visit our new repository at <https://github.com/CarbonMatrixLab/AbX for AbX>. This repository will continue to host the code for CarbonDesign.
+
+
 ## CarbonMatrix Team
 **Aims**\
 We aim to develop large-scale generative AI models for protein structure prediction and protein design. We have already released CarbonDesign, and we plan to release more models soon.
