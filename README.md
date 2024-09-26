@@ -1,4 +1,4 @@
-**Notes**\
+## Notes
 Please visit our new repository at <https://github.com/CarbonMatrixLab/AbX for AbX>. This repository will continue to host the code for CarbonDesign.
 
 
