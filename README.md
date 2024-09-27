@@ -1,5 +1,5 @@
 ## Notes
-Please visit our new repository at <https://github.com/CarbonMatrixLab/AbX> for AbX. This repository will continue to host the code for CarbonDesign.
+Please visit our new repositories for **AbX** at <https://github.com/CarbonMatrixLab/AbX> and **CarbonNovo** at <https://github.com/CarbonMatrixLab/carbonnovo>. This repository will continue to host the code for CarbonDesign.
 
 
 ## CarbonMatrix Team
