@@ -27,6 +27,8 @@ AbX: <https://openreview.net/pdf?id=1YsQI04KaN>
 **9 Jan 2024**: Our paper, CarbonDesign, has been accepted by Nature Machine Intelligence.  
 Accurate and robust protein sequence design with CarbonDesign. <https://www.biorxiv.org/content/10.1101/2023.08.07.552204v1> 
 
+**24 Oct 2024**
+We resolved the issue with using the PDB file residue numbers. CarbonDesign can now generate a mapping file that links the designed residue types with the corresponding residue numbers in the PDB file (**--save_map**). We used mmCIF files for training, as their mapping relationships allow for more accurate sequence design.
 
 
 ## CarbonDesign
