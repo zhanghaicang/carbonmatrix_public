@@ -157,7 +157,6 @@ def evaluate_mrf_one(name, gt_str_seq, site_repr, pair_repr, site_mask, pair_mas
                 break
         index = []
         sequences = []
-        #valid_map = residue_ids[:e+1]
         for i in range(e-s+1):
             index.append(s+i)
             sequences.append(pred_str_seq2[i])
