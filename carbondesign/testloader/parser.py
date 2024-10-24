@@ -140,6 +140,10 @@ def get_pdb_id(pdb_file_path):
 def parse_pdb(pdb_file, model=0):
     parser = PDBParser()
     structure = parser.get_structure(get_pdb_id(pdb_file), pdb_file)
+    #first_model = structure[0]
+    #first_chain = list(first_model.get_chains())[0]
+    #residue_ids = [residue.get_id()[1] for residue in first_chain.get_residues() if residue.get_id()[0] == ' ']
+    #print(residue_ids)
     return structure[model]
 
 def make_struc_feature(residues, str_seq, pdb2seq):

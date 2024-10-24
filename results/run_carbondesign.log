@@ -1,0 +1,36 @@
+2024-10-23 14:09:50,592 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-23 14:09:50,592 [INFO] (dataset_test.py:172) processing data/pdbs/test.pdb
+2024-10-24 02:34:52,029 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 02:34:52,030 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 02:35:43,822 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 02:35:43,823 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 02:36:47,127 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 02:36:47,128 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 02:37:18,294 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 02:37:18,294 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 02:39:59,212 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 02:39:59,214 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 02:41:16,676 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 02:41:16,676 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 02:45:40,851 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 02:45:40,852 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 02:49:01,100 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 02:49:01,100 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 02:58:40,371 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 02:58:40,371 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 03:02:12,548 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 03:02:12,549 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 03:06:04,575 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 03:06:04,576 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 03:08:32,173 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 03:08:32,174 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 03:11:09,565 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 03:11:09,566 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 03:12:28,047 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 03:12:28,048 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 03:24:15,567 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 03:24:15,568 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 03:25:37,950 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 03:25:37,951 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb
+2024-10-24 03:31:19,652 [INFO] (dataset_test.py:86) dataset size= 1 max_seq_len= None reduce_num= None is_cluster_idx= False
+2024-10-24 03:31:19,653 [INFO] (dataset_test.py:211) processing data/pdbs/test.pdb

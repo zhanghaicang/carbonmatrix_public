@@ -5,7 +5,7 @@ from logging.handlers import QueueHandler, QueueListener
 import resource
 import json
 from random import shuffle
-
+import pandas as pd
 import ml_collections
 import numpy as np
 import torch
@@ -124,7 +124,7 @@ def replace_with_x(seq_str, mask):
             ret_str.append('X')
     return ''.join(ret_str)
 
-def evaluate_mrf_one(name, gt_str_seq, site_repr, pair_repr, site_mask, pair_mask, args, sidechain_all):
+def evaluate_mrf_one(name, gt_str_seq, site_repr, pair_repr, site_mask, pair_mask, args, sidechain_all, residue_ids):
     site_prob = softmax(site_repr)
     label = np.argmax(site_prob, axis=-1)
     
@@ -146,9 +146,26 @@ def evaluate_mrf_one(name, gt_str_seq, site_repr, pair_repr, site_mask, pair_mas
     sidechain_single = np.array(sidechain_single)
     sidechain_all = np.array(sidechain_all)
     print(f'>{name}\tCarbonDesign\n{pred_str_seq2}\n')
+    
     with open(os.path.join(args.output_dir, name + '.fasta'), 'w') as fw:
         fw.write(f'>{name}\tCarbonDesign\n{pred_str_seq2}\n')
-
+    if args.save_map:
+        s = residue_ids[0].item()
+        for i in range(len(residue_ids)-1, 0, -1):
+            if residue_ids[i] != 0:
+                e = residue_ids[i].item()
+                break
+        index = []
+        sequences = []
+        #valid_map = residue_ids[:e+1]
+        for i in range(e-s+1):
+            index.append(s+i)
+            sequences.append(pred_str_seq2[i])
+        datas = {'Index': index,
+                'Sequences':sequences
+                }
+        df = pd.DataFrame(datas)
+        df.to_csv(os.path.join(args.output_dir, name + '.csv'), index=False)
     if args.save_mrf:
         np.savez(os.path.join(args.output_dir, name + '.mrf.npz'), 
                 site_repr=site_repr,
@@ -164,14 +181,14 @@ def evaluate_mrf_one(name, gt_str_seq, site_repr, pair_repr, site_mask, pair_mas
         save_pdb(sequence, sidechain_single, pdb_file, chains)
 
 def evaluate_mrf_batch(batch, ret, args):
-    
     gt_str_seq, site_repr, pair_repr, sidechain_all = batch['str_seq'], ret['heads']['seqhead']['logits'].to('cpu').numpy(), ret['heads']['pairhead']['logits'].to('cpu').numpy(), ret['heads']['folding']['sidechains']['atom_pos'].cpu().numpy()
     site_mask, pair_mask = batch['mask'].to('cpu').numpy(), batch['pair_mask'].to('cpu').numpy()
     names = batch['name']
     L = sidechain_all.shape[1]
     sidechain_all=sidechain_all.reshape(-1,21,L,14,3)
-    for name, site_mask_, pair_mask_, gt_str_seq_, pair_repr_, site_repr_, sidechain_all_ in zip(names, site_mask, pair_mask, gt_str_seq, pair_repr, site_repr, sidechain_all):
-        evaluate_mrf_one(name, gt_str_seq_, site_repr_, pair_repr_, site_mask_, pair_mask_, args, sidechain_all_)
+    residue_ids = batch['residue_ids']    
+    for name, site_mask_, pair_mask_, gt_str_seq_, pair_repr_, site_repr_, sidechain_all_, residue_ids_ in zip(names, site_mask, pair_mask, gt_str_seq, pair_repr, site_repr, sidechain_all, residue_ids):
+        evaluate_mrf_one(name, gt_str_seq_, site_repr_, pair_repr_, site_mask_, pair_mask_, args, sidechain_all_, residue_ids_)
 def evaluate(rank, log_queue, args):
     #worker_setup(rank, log_queue, args)
 
@@ -264,6 +281,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--save_mrf', action='store_true')
     parser.add_argument('--save_sidechain',action='store_true')
+    parser.add_argument('--save_map',action='store_true')
     parser.add_argument('--model', type=str,
             default='./params/carbondesign_default.ckpt')
     parser.add_argument('--model_features', type=str,

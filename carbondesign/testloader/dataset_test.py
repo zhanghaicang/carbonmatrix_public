@@ -19,7 +19,7 @@ from carbondesign.data.utils import pad_for_batch
 from Bio.PDB.PDBExceptions import PDBConstructionException
 from Bio.PDB import PDBIO
 from Bio.PDB.Chain import Chain
-
+from Bio.PDB import is_aa
 from carbondesign.testloader.parser import parse_pdb
 from carbondesign.common import residue_constants
 logger = logging.getLogger(__file__)
@@ -123,7 +123,7 @@ def sample_with_struc(struc_mask, str_len, max_seq_len):
 
 
 
-def make_feature(structure):
+def make_feature_previous(structure):
     N = len(structure)
 
     assert N > 0
@@ -167,6 +167,45 @@ def make_feature(structure):
             coord_mask=coord_mask)
     return feature
 
+
+def make_feature(structure):
+
+    first_model = structure[0]
+    amino_acids = []
+    amino_acids.extend([
+            residue for residue in structure.get_residues()
+            if is_aa(residue, standard=True)
+        ])
+
+    residue_ids = [residue.get_id()[1] for residue in amino_acids]
+
+    start = residue_ids[0]
+    end = residue_ids[-1]
+    assert end > start
+    coords = np.zeros(((end-start+1), 14, 3), dtype=np.float32)
+    coord_mask = np.zeros(((end-start+1), 14), dtype=bool)
+    
+    for i in range((end-start+1)):
+        residue_id = (' ', start + i , ' ') 
+        if residue_id in structure:
+            residue = structure[residue_id]
+            if residue.resname not in residue_constants.restype_name_to_atom14_names:
+                continue
+            res_atom14_list = residue_constants.restype_name_to_atom14_names[residue.resname]
+            for atom in residue.get_atoms():
+                if atom.id not in ['CA', 'C', 'N', 'O']:
+                    continue
+                if i not in residue_ids:
+                    continue
+                atom14idx = res_atom14_list.index(atom.id)
+                coords[i, atom14idx] = atom.get_coord()
+                coord_mask[i, atom14idx] = True 
+    feature = dict(
+            str_seq='G' * (end-start+1),
+            coords=coords,
+            residue_ids = residue_ids,
+            coord_mask=coord_mask)
+    return feature
 
 def process(args):
     logging.info(f'processing {args}')
@@ -239,10 +278,6 @@ class MonomerDataset(Dataset):
             yield ret
 
     def get_structure_label_npz(self, name):
-#        struc = np.load(os.path.join(self.data_dir, name + '.npz'))
-        
-#        coords = torch.from_numpy(struc['coords'])
-#        coord_mask = torch.from_numpy(struc['coord_mask'])
         print(self.data_dir)
         print(name)
         
@@ -273,6 +308,7 @@ class MonomerDataset(Dataset):
                 aatype_unk_mask=aatype_unk_mask,
                 atom14_gt_positions=coords, atom14_gt_exists=coord_mask,
                 chain_id = chain_id,
+                residue_ids = torch.tensor(PDB_feature['residue_ids']),
                 geo_global = geo_global)
 
         return ret
@@ -280,8 +316,8 @@ class MonomerDataset(Dataset):
     def collate_fn(self, batch, feat_builder=None):
         fields = ('name', 'str_seq', 'seq', 'mask', 'aatype_unk_mask',
                 'atom14_gt_positions', 'atom14_gt_exists',
-                'chain_id', 'geo_global')
-        name, str_seq, seq, mask, aatype_unk_mask, atom14_gt_positions, atom14_gt_exists, chain_id , geo_global =\
+                'chain_id', 'residue_ids', 'geo_global')
+        name, str_seq, seq, mask, aatype_unk_mask, atom14_gt_positions, atom14_gt_exists, chain_id, residue_ids, geo_global =\
                 list(zip(*[[b[k] for k in fields] for b in batch]))
 
         max_len = max(tuple(len(s) for s in str_seq))
@@ -295,7 +331,7 @@ class MonomerDataset(Dataset):
         padded_atom14_gt_existss = pad_for_batch(atom14_gt_exists, max_len, 'crd_msk')
 
         padded_chain_id = pad_for_batch(chain_id, max_len, 'msk')
-
+        padded_residue_ids = pad_for_batch(residue_ids, max_len, 'msk')
         padded_geo_global = torch.stack(geo_global, dim=0) 
 
         ret = dict(
@@ -308,6 +344,7 @@ class MonomerDataset(Dataset):
                 atom14_gt_exists=padded_atom14_gt_existss,
                 chain_id=padded_chain_id,
                 geo_global=padded_geo_global,
+                residue_ids = padded_residue_ids,
                 data_type = 'monomer',
                 )
 
