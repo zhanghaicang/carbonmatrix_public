@@ -7,7 +7,7 @@ Please visit our new repositories for **AbX** at <https://github.com/CarbonMatri
 We aim to develop large-scale generative AI models for protein structure prediction and protein design. We have already released CarbonDesign, and we plan to release more models soon.
 
 **Current members**\
-Haicang Zhang (zhanghaicang@ict.ac.cn) \
+Haicang Zhang (zhanghaicang@sjtu.edu.cn) \
 Milong Ren, Tian Zhu, Zaikai He, Siyuan Tao
 
 **News**\
