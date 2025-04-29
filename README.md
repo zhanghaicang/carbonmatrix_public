@@ -6,9 +6,8 @@ Please visit our new repositories for **AbX** at <https://github.com/CarbonMatri
 **Aims**\
 We aim to develop large-scale generative AI models for protein structure prediction and protein design. We have already released CarbonDesign, and we plan to release more models soon.
 
-**Current members**\
+**Contact**\
 Haicang Zhang (zhanghaicang@sjtu.edu.cn) \
-Milong Ren, Tian Zhu, Zaikai He, Siyuan Tao
 
 **News**\
 **11 June 2024**: CarbonNovo and AbX are available online in the ICML 2024.  
