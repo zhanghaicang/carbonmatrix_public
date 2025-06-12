@@ -38,5 +38,6 @@ name_idx: list of pdb ids whose pdb files have been put in the input directory
 **Citation**\
 Accurate and robust protein sequence design with CarbonDesign.  M. Ren, C. Yu, D. Bu, H. Zhang. Nature Machine Intelligence. 6, 536–547 (2024). https://doi.org/10.1038/s42256-024-00838-2
 
-
+**Contributions**\
+H.Z. conceived the ideas and implemented the CarbonDesign model and algorithms. H.Z. and M.R. designed the experiments, and M.R. conducted the main experiments and analysis. M.R. wrote the manuscript. H.Z., D.B. and C.Y. revised the manuscript.
 
