@@ -5,17 +5,11 @@ Please visit our new repositories for **AbX** at <https://github.com/CarbonMatri
 **Contact**\
 Haicang Zhang (zhanghaicang@sjtu.edu.cn) 
 
-
-**Citation**\
-Accurate and robust protein sequence design with CarbonDesign.  M. Ren, C. Yu, D. Bu, H. Zhang. Nature Machine Intelligence. 6, 536–547 (2024). https://doi.org/10.1038/s42256-024-00838-2
-
 **Contributions**\
 H.Z. conceived the ideas and implemented the CarbonDesign model and algorithms. H.Z. and M.R. designed the experiments, and M.R. conducted the main experiments and analysis. M.R. wrote the manuscript. H.Z., D.B. and C.Y. revised the manuscript.
 
-**Acknowledgements**\
-We acknowledge the financial support from the National Natural Science Foundation of China (grant no. 32370657) and the Project of Youth Innovation Promotion Association CAS to H.Z. We also acknowledge the financial support from the Development Program of China (grant no. 2020YFA0907000) and the National Natural Science Foundation of China (grant nos. 32271297 and 62072435). We thank Beijing Paratera Co., Ltd and the ICT Computing-X Center, Chinese Academy of Sciences, for providing computational resources.
-
-
+**Citation**\
+Accurate and robust protein sequence design with CarbonDesign.  M. Ren, C. Yu, D. Bu, H. Zhang. Nature Machine Intelligence. 6, 536–547 (2024). https://doi.org/10.1038/s42256-024-00838-2
 
 **Installation**  
 
